@@ -1111,7 +1111,7 @@ async function ocrPage(p,langs){
     const fs=Math.max(4,Math.min((base-bb.y0)/0.78,(bb.y1-bb.y0)*1.05))/s;
     const words=(ln.words&&ln.words.length?ln.words:[{text:ln.text.trim(),bbox:bb}]).filter(wd=>wd.text&&wd.text.trim());
     let cur=null;
-    for(const wd of words){const x0=wd.bbox.x0/s,x1=wd.bbox.x1/s,t=wd.text.trim().replace(/^[|\[\]]+|[|\[\]]+$/g,'');
+    for(const wd of words){const x0=wd.bbox.x0/s,x1=wd.bbox.x1/s,t=wd.text.replace(/[\u200B-\u200D\uFEFF]/g,'').trim().replace(/^[|\[\]]+|[|\[\]]+$/g,'');
       if(!t){if(cur){lines.push(cur);cur=null;}continue;}
       if(cur&&x0-cur.r<fs*0.9){cur.t+=' '+t;cur.r=x1;}
       else{if(cur)lines.push(cur);cur={x:x0,r:x1,t};}}
