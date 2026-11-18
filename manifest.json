@@ -1,0 +1,18 @@
+{
+  "name": "SK PDF Editor",
+  "short_name": "PDF Editor",
+  "description": "Edit PDFs (English & Tamil), add text, seals and signatures, and convert PDF to Word, Excel, Text and images – fully offline.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef1f5",
+  "theme_color": "#1f6feb",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}
+  ],
+  "file_handlers": [
+    {"action": "./index.html", "accept": {"application/pdf": [".pdf"]}}
+  ],
+  "launch_handler": {"client_mode": "single-client"}
+}
